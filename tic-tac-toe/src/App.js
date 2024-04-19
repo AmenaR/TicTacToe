@@ -3,7 +3,7 @@ import './App.css';
 
 function Square({ value, onSquareClick }) {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className={`square ${value ? value === 'X' ? 'playerX' : 'playerO' : ''}`} onClick={onSquareClick}>
       {value}
     </button>
   );
@@ -86,22 +86,31 @@ export default function Game() {
     } else if (move > 0) {
       return (
         <li key={move}>
-        <button onClick={() => jumpTo(move)}>Go to move #{move}</button>
+        <button className="game-btn" onClick={() => jumpTo(move)}>Go to move #{move}</button>
       </li>
       );
     }
   })
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+    <>
+    <div className='container'>
+      <div className='title'>
+        <h1>Tic Tac Toe</h1>
       </div>
-      <div className="game-info">
-        <button onClick={() => jumpTo(0)}>Restart game</button>
-        <ul>{moves}</ul>
+      <div className="game">
+        <div className="game-board">
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        </div>
+        <div className="game-info">
+          <div className='restart-btn'>
+          <button className="game-btn" onClick={() => jumpTo(0)}>Restart game</button>
+          </div>
+          <ul>{moves}</ul>
+        </div>
       </div>
     </div>
+    </>
   );
 }
 
