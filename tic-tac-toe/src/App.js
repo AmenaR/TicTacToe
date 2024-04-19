@@ -27,10 +27,13 @@ function Board({ xIsNext, squares, onPlay }) {
   }
 
   const winner = calculateWinner(squares);
+  const draw = calculateDraw(squares)
   let status;
-  if(winner){
+  if(winner) {
     status = 'Winner: ' + winner;
-  } else{
+  } else if(draw) {
+    status = 'Draw';
+  } else {
     status = 'Next Player: ' + (xIsNext ? 'X' : 'O');
   }
 
@@ -74,7 +77,6 @@ export default function Game() {
   }
 
   const moves = history.map((squares, move) => {
-    let description;
     if (move == currentMove){
       return (
         <li key={move}>
@@ -82,15 +84,12 @@ export default function Game() {
         </li>
       );
     } else if (move > 0) {
-      description = 'Go to move #' + move;
-    } else {
-      description = 'Restart game';
-    }
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+      return (
+        <li key={move}>
+        <button onClick={() => jumpTo(move)}>Go to move #{move}</button>
       </li>
-    );
+      );
+    }
   })
 
   return (
@@ -99,7 +98,8 @@ export default function Game() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol>{moves}</ol>
+        <button onClick={() => jumpTo(0)}>Restart game</button>
+        <ul>{moves}</ul>
       </div>
     </div>
   );
@@ -123,4 +123,8 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+
+function calculateDraw(squares) {
+  return (!squares.includes(null));
 }
