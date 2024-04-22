@@ -5,13 +5,13 @@ A single page React application, bootstrapped with [Create React App](https://gi
 
 ## App Screenshots
  
-![image]([tic-tac-toe\public\X-win.png](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/X-win.png)) 
+![X Win Image](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/X-win.png) 
 
-![image]([tic-tac-toe\public\O-win.png](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/O-win.png)) 
+![O Win Image](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/O-win.png) 
 
-![image]([tic-tac-toe\public\Draw.png](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/Draw.png)) 
+![Draw Image](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/Draw.png) 
 
-![image]([tic-tac-toe\public\History.png](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/History.png)) 
+![History Image](https://github.com/AmenaR/TicTacToe/blob/main/tic-tac-toe/public/History.png) 
 
 ### Available Scripts
 
